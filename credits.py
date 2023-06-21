@@ -162,4 +162,6 @@ class CreditBuilder(object):
             except Exception as e:
                 print(f"An error occurred: {str(e)}")
                 
-    
+if __name__ == '__main__':
+    credits = CreditBuilder()
+    credits.main()
