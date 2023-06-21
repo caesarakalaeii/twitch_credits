@@ -1,3 +1,23 @@
+'''
+To use this script create a file called credentials.json with the following content:
+{
+    "client_id": "YOUR_CLIENT_ID",
+    "auth_token": "YOUR_AUTH_TOKEN",
+    "channel_name": "YOUR_CHANNEL_NAME",
+    "redemption_id": "REDEEM_ID", 
+    "functions": {
+      "new_subs": true,
+      "new_follows": true,
+      "new_raids": true,
+      "all_subs": true,
+      "redeem": true
+
+    }
+  }
+  
+  You can turn features off/and on by changing the values from true to false
+'''
+
 import json
 from events import EventRecorder
 from event_formatter import Formatter
@@ -130,9 +150,6 @@ class CreditBuilder(object):
         return usernames
                             
     def main(self):
-        #Set up Events
-        
-
         # Start listening to events
         while self.check_stream_status():
             try:
