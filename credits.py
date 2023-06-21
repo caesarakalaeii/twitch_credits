@@ -14,7 +14,7 @@ class CreditBuilder(object):
         functions = {"new_subs": [self.check_new_subs(), AuthScope.CHANNEL_READ_SUBSCRIPTIONS],
                      "new_follows": [self.check_follows()],
                      "new_raids": [self.check_raids()],
-                     "all_subs": [self.get_active_subscriptions(), AuthScope.CHANNEL_READ_SUBSCRIPTIONS],
+                     "all_subs": [AuthScope.CHANNEL_READ_SUBSCRIPTIONS],
                      "redeem": [self.check_new_redeems(), AuthScope.CHANNEL_READ_REDEMPTIONS]
                      }
         # Load credentials from JSON file
@@ -28,11 +28,15 @@ class CreditBuilder(object):
         #enable set functions
         for f,v in functions:
             if activate_functions[f]:
-                self.enabled_functions.append(v[0])
-                try: #try to add scope, if it exists
-                    self.scope.append(v[1])
-                except IndexError:
-                    continue
+                if f is "all_subs":
+                    self.scope.append(v[0])
+                    continue #redundant but improves readability
+                else:
+                    self.enabled_functions.append(v[0])
+                    try: #try to add scope, if it exists
+                        self.scope.append(v[1])
+                    except IndexError:
+                        continue
                 
             
         # Initialize the Twitch API client
