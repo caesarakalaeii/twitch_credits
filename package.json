@@ -1,0 +1,52 @@
+{
+  "name": "caesar-twitch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm exec tsc",
+    "start:dev": "node -r ts-node/register src/start.ts",
+    "start": "node dist/start.js",
+    "arduino-cli": "node -r ts-node/register src/arduino-cli.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/body-parser": "^1.19.2",
+    "@types/compression": "^1.7.2",
+    "@types/express": "^4.17.13",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^16.11.47",
+    "@types/prompts": "^2.0.14",
+    "@types/yargs": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@kounadev/loadfile": "^1.0.0",
+    "@twurple/api": "^5.2.0",
+    "@twurple/auth": "^5.2.1",
+    "@twurple/eventsub": "^5.2.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "compression": "^1.7.4",
+    "express": "^4.18.1",
+    "lodash": "^4.17.21",
+    "onoff": "^6.0.3",
+    "prompts": "^2.4.2",
+    "serialport": "^10.4.0",
+    "string-argv": "^0.3.1",
+    "yargs": "^17.5.1"
+  }
+}
